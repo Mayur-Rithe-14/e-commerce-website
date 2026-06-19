@@ -1,0 +1,45 @@
+.admin-sidebar {
+  width: 260px;
+  min-height: 100vh;
+
+  background: #111827;
+
+  padding: 30px 20px;
+
+  position: sticky;
+  top: 0;
+}
+
+.admin-logo {
+  margin-bottom: 40px;
+}
+
+.admin-logo h2 {
+  color: white;
+  font-size: 24px;
+}
+
+.admin-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 16px;
+  margin-bottom: 10px;
+
+  border-radius: 12px;
+
+  color: #d1d5db;
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.admin-link:hover {
+  background: #1f2937;
+  color: white;
+}
+
+.admin-link svg {
+  font-size: 18px;
+}

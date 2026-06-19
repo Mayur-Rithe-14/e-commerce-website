@@ -1,0 +1,154 @@
+.orders-header {
+  margin-bottom: 30px;
+}
+
+.orders-header h1 {
+  font-size: 38px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.orders-header p {
+  color: #777;
+  font-size: 15px;
+}
+
+.orders-table {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Header & Row Layout */
+.orders-head,
+.orders-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr 1.2fr 120px;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 25px;
+}
+
+.orders-head {
+  background: #fafafa;
+  font-weight: 700;
+  font-size: 15px;
+  color: #222;
+}
+
+.orders-row {
+  border-top: 1px solid #eee;
+  transition: background 0.3s ease;
+}
+
+.orders-row:hover {
+  background: #fafafa;
+}
+
+/* Status Dropdown */
+.orders-row select {
+  width: 100%;
+  padding: 10px 12px;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  outline: none;
+  cursor: pointer;
+  background: white;
+}
+
+.orders-row select:focus {
+  border-color: #ff5a3c;
+}
+
+/* Actions */
+.order-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-order-btn {
+  background: #ef4444;
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 10px 16px;
+
+  cursor: pointer;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.delete-order-btn:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* Empty State */
+.no-orders {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+  font-size: 16px;
+}
+
+.delete-btn {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #fee2e2;
+  color: #dc2626;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+  color: white;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .orders-head {
+    display: none;
+  }
+
+  .orders-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+
+    text-align: center;
+
+    padding: 20px;
+  }
+
+  .orders-row span {
+    display: block;
+  }
+
+  .orders-row select {
+    width: 100%;
+  }
+
+  .order-actions {
+    justify-content: center;
+  }
+
+  .delete-order-btn {
+    width: 100%;
+  }
+}

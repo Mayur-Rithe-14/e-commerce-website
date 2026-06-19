@@ -1,0 +1,149 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 40px;
+  background: #f8f9fb;
+}
+
+.admin-page {
+  padding: 80px 0;
+  background: #f8f9fb;
+  min-height: 100vh;
+}
+
+.admin-header {
+  margin-bottom: 40px;
+}
+
+.admin-header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.admin-header p {
+  color: #777;
+}
+
+/* Stats */
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card svg {
+  font-size: 40px;
+  color: #ff5a3c;
+  margin-bottom: 15px;
+}
+
+.stat-card h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  color: #777;
+}
+
+/* Section */
+
+.admin-section {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  /* text-align: center; */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.admin-section h2 {
+  margin-bottom: 25px;
+}
+
+/* Table */
+
+.admin-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-head,
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
+  padding: 16px 0;
+  align-items: center;
+}
+
+.table-head {
+  border-bottom: 2px solid #eee;
+  font-weight: 700;
+}
+
+.table-row {
+  border-bottom: 1px solid #eee;
+}
+
+.status {
+  padding: 8px 14px;
+  border-radius: 30px;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.delivered {
+  background: #e8f9ef;
+  color: #22c55e;
+}
+
+.processing {
+  background: #fff7e5;
+  color: #f59e0b;
+}
+
+.shipped {
+  background: #e8f1ff;
+  color: #3b82f6;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+  .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .table-head,
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+}

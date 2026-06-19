@@ -1,0 +1,147 @@
+.admin-products-page {
+  padding: 80px 0;
+  background: #f8f9fb;
+  min-height: 100vh;
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.product-details h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.product-details p {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #888;
+}
+
+.add-product-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background: #ff5a3c;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.products-table {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.products-head,
+.products-row {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr;
+  padding: 15px;
+  align-items: center;
+}
+
+.products-head {
+  background: #fafafa;
+  font-weight: 700;
+}
+
+.products-row {
+  padding: 20px 24px;
+  border-top: 1px solid #eee;
+}
+
+.price-cell {
+  font-weight: 700;
+  color: #111827;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-info img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.stock-badge {
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.in-stock {
+  color: #1f9d55;
+}
+
+.out-stock {
+  color: #e53935;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background: #e8f1ff;
+  color: #2563eb;
+}
+
+.delete-btn {
+  background: #ffe8e8;
+  color: #ef4444;
+}
+
+@media (max-width: 768px) {
+  .products-header {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .products-head {
+    display: none;
+  }
+
+  .products-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .product-info {
+    justify-content: center;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}

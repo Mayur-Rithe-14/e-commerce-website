@@ -1,10 +1,16 @@
-import {useState} from "react";
-import {FiPackage, FiHeart, FiShoppingCart, FiLogOut} from "react-icons/fi";
+import {useState, useContext} from "react";
+import {
+  FiPackage,
+  FiHeart,
+  FiShoppingCart,
+  FiLogOut,
+  FiShield,
+} from "react-icons/fi";
 import {useNavigate} from "react-router-dom";
+
 import MyOrders from "../MyOrders/MyOrders";
 import Wishlist from "../Wishlist/Wishlist";
 
-import {useContext} from "react";
 import {OrderContext} from "../../context/OrderContext";
 import {WishlistContext} from "../../context/WishlistContext";
 import {CartContext} from "../../context/CartContext";
@@ -19,6 +25,8 @@ const Account = () => {
   const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState("dashboard");
+
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -59,6 +67,14 @@ const Account = () => {
                 <FiHeart />
                 Wishlist
               </li>
+
+              {/* ADMIN BUTTON */}
+              {user?.role === "admin" && (
+                <li onClick={() => navigate("/admin")}>
+                  <FiShield />
+                  Admin Dashboard
+                </li>
+              )}
 
               <li className="logout-item" onClick={handleLogout}>
                 <FiLogOut />

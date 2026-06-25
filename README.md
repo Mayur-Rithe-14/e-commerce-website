@@ -34,7 +34,7 @@ The platform provides a complete online shopping experience for customers along 
 
 ### 🛒 Shopping Cart
 
-![Shopping Cart](./screenshots/cart-page.png)
+![Shopping Cart](./screenshots/card-page.png)
 
 ---
 

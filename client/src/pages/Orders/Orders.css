@@ -66,7 +66,7 @@
 
 .view-order-btn {
   border: none;
-  background: #ff5a3c;
+  background: var(--primary);
   color: white;
 
   padding: 12px 18px;

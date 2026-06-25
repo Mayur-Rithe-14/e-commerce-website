@@ -12,22 +12,19 @@ const Contact = () => {
         <div className="contact-wrapper">
           <div className="contact-info">
             <h3>Email</h3>
-            <p>support@eshop.com</p>
+            <p>mayurrithe2004@gmail.com</p>
 
             <h3>Phone</h3>
-            <p>+91 9876543210</p>
+            <p>+91 8483046790</p>
 
             <h3>Address</h3>
-            <p>Pune, Maharashtra, India</p>
+            <p>Mumbai, Maharashtra, India</p>
           </div>
 
           <form className="contact-form">
             <input type="text" placeholder="Your Name" />
-
             <input type="email" placeholder="Your Email" />
-
             <textarea rows="6" placeholder="Your Message"></textarea>
-
             <button type="submit">Send Message</button>
           </form>
         </div>

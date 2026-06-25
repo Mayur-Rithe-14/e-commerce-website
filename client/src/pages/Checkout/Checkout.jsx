@@ -78,7 +78,7 @@ ${shippingInfo.pinCode}
 
       clearCart();
 
-      toast.success("Order Placed Successfully 🎉");
+      toast.success("Order Placed Successfully");
 
       navigate("/order-success");
     } catch (error) {

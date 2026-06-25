@@ -61,8 +61,8 @@ const Footer = () => {
             <h3>Contact</h3>
 
             <ul>
-              <li>support@electromart.com</li>
-              <li>+91 9876543210</li>
+              <li>mayurrithe2004@gmail.com</li>
+              <li>+91 8483046790</li>
               <li>Mumbai, India</li>
             </ul>
           </div>

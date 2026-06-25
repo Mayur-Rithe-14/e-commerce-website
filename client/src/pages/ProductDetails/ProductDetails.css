@@ -50,11 +50,11 @@
 }
 
 .gallery-thumb:hover {
-  border-color: #ff5a3c;
+  border-color: var(--primary);
 }
 
 .gallery-thumb.active {
-  border-color: #ff5a3c;
+  border-color: var(--primary);
 }
 
 /* =========================
@@ -62,7 +62,7 @@
 ========================= */
 
 .product-category {
-  color: #ff5a3c;
+  color: var(--primary);
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
@@ -81,7 +81,7 @@
 }
 
 .product-content-section h2 {
-  color: #ff5a3c;
+  color: var(--primary);
   font-size: 42px;
   margin-bottom: 20px;
 }
@@ -116,7 +116,7 @@
 }
 
 .quantity-box button:hover {
-  background: #ff5a3c;
+  background: #1e63d6;
   color: #fff;
 }
 
@@ -141,7 +141,7 @@
   flex: 1;
   height: 55px;
   border: none;
-  background: #ff5a3c;
+  background: var(--primary);
   color: #fff;
   border-radius: 12px;
   font-size: 16px;
@@ -151,7 +151,7 @@
 }
 
 .cart-btn:hover {
-  background: #ea4a2d;
+  background: #1e63d6;
 }
 
 .cart-btn:disabled {
@@ -161,7 +161,7 @@
 
 .wishlist-btn {
   width: 180px;
-  border: none;
+  border: 1px solid #1e63d6;
   background: #f3f3f3;
   border-radius: 12px;
   font-weight: 600;
@@ -170,7 +170,8 @@
 }
 
 .wishlist-btn:hover {
-  background: #e7e7e7;
+  color: white;
+  background: #1e63d6;
 }
 
 /* =========================
@@ -220,7 +221,7 @@
 }
 
 .related-card p {
-  color: #ff5a3c;
+  color: var(--primary);
   font-weight: 700;
 }
 

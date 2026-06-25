@@ -7,9 +7,7 @@ import "./AdminAddProduct.css";
 
 const AdminAddProduct = () => {
   const {addProduct} = useContext(ProductContext);
-
   const [loading, setLoading] = useState(false);
-
   const [formData, setFormData] = useState({
     name: "",
     price: "",
@@ -28,9 +26,7 @@ const AdminAddProduct = () => {
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
-
     if (!file) return;
-
     const reader = new FileReader();
 
     reader.onloadend = () => {
@@ -119,15 +115,10 @@ const AdminAddProduct = () => {
           required
         >
           <option value="">Select Category</option>
-
           <option value="phone">Phone</option>
-
           <option value="laptop">Laptop</option>
-
           <option value="watch">Watch</option>
-
           <option value="audio">Audio</option>
-
           <option value="camera">Camera</option>
         </select>
 

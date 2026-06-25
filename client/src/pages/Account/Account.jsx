@@ -1,14 +1,21 @@
 import {useState} from "react";
 import {FiPackage, FiHeart, FiShoppingCart, FiLogOut} from "react-icons/fi";
-
 import {useNavigate} from "react-router-dom";
-
 import MyOrders from "../MyOrders/MyOrders";
 import Wishlist from "../Wishlist/Wishlist";
+
+import {useContext} from "react";
+import {OrderContext} from "../../context/OrderContext";
+import {WishlistContext} from "../../context/WishlistContext";
+import {CartContext} from "../../context/CartContext";
 
 import "./Account.css";
 
 const Account = () => {
+  const {orders} = useContext(OrderContext);
+  const {wishlistItems} = useContext(WishlistContext);
+  const {cartItems} = useContext(CartContext);
+
   const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -67,19 +74,19 @@ const Account = () => {
                 <div className="account-cards">
                   <div className="account-card">
                     <FiPackage />
-                    <h3>12</h3>
+                    <h3>{orders.length}</h3>
                     <p>Total Orders</p>
                   </div>
 
                   <div className="account-card">
                     <FiHeart />
-                    <h3>8</h3>
+                    <h3>{wishlistItems.length}</h3>
                     <p>Wishlist Items</p>
                   </div>
 
                   <div className="account-card">
                     <FiShoppingCart />
-                    <h3>3</h3>
+                    <h3>{cartItems.length}</h3>
                     <p>Cart Items</p>
                   </div>
                 </div>
@@ -96,7 +103,6 @@ const Account = () => {
             )}
 
             {activeTab === "orders" && <MyOrders />}
-
             {activeTab === "wishlist" && <Wishlist />}
           </div>
         </div>

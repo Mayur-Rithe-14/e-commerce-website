@@ -4,6 +4,7 @@ import {ProductContext} from "../../context/ProductContext";
 import {OrderContext} from "../../context/OrderContext";
 
 import {
+  ResponsiveContainer,
   LineChart,
   Line,
   BarChart,
@@ -11,7 +12,6 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
 
@@ -22,61 +22,80 @@ const AdminAnalytics = () => {
   const {orders} = useContext(OrderContext);
 
   const totalRevenue = orders.reduce(
-    (total, order) => total + Number(order.total || 0),
+    (sum, order) => sum + Number(order.total || 0),
     0,
   );
 
   const uniqueCustomers = new Set(orders.map((order) => order.customer)).size;
 
-  const processingOrders = orders.filter(
-    (order) => order.status === "Processing",
-  ).length;
+  // Monthly Revenue
 
-  const shippedOrders = orders.filter(
-    (order) => order.status === "Shipped",
-  ).length;
+  const monthlyRevenue = {};
 
-  const deliveredOrders = orders.filter(
-    (order) => order.status === "Delivered",
-  ).length;
+  orders.forEach((order) => {
+    const date = new Date(order.createdAt);
 
-  const cancelledOrders = orders.filter(
-    (order) => order.status === "Cancelled",
-  ).length;
+    const month = date.toLocaleString("default", {
+      month: "short",
+    });
 
-  // Revenue Chart
-  const revenueData = [
-    {
-      name: "Revenue",
-      revenue: totalRevenue,
-    },
-  ];
+    monthlyRevenue[month] =
+      (monthlyRevenue[month] || 0) + Number(order.total || 0);
+  });
 
-  // Orders Status Chart
+  const revenueData = Object.keys(monthlyRevenue).map((month) => ({
+    month,
+    revenue: monthlyRevenue[month],
+  }));
+
+  // Order Status
+
   const ordersData = [
     {
       name: "Processing",
-      orders: processingOrders,
+      orders: orders.filter((o) => o.status === "Processing").length,
     },
+
     {
       name: "Shipped",
-      orders: shippedOrders,
+      orders: orders.filter((o) => o.status === "Shipped").length,
     },
+
     {
       name: "Delivered",
-      orders: deliveredOrders,
+      orders: orders.filter((o) => o.status === "Delivered").length,
     },
+
     {
       name: "Cancelled",
-      orders: cancelledOrders,
+      orders: orders.filter((o) => o.status === "Cancelled").length,
     },
   ];
+
+  // Top Selling Products
+
+  const productSales = {};
+
+  orders.forEach((order) => {
+    order.items?.forEach((item) => {
+      productSales[item.name] = (productSales[item.name] || 0) + item.quantity;
+    });
+  });
+
+  const topProducts = Object.entries(productSales)
+    .map(([name, sales]) => ({
+      name,
+      sales,
+    }))
+    .sort((a, b) => b.sales - a.sales)
+    .slice(0, 5);
 
   return (
     <AdminLayout>
       <div className="analytics-header">
         <h1>Store Analytics</h1>
-        <p>Track sales and orders performance</p>
+
+        <p>Track sales, orders and store performance</p>
       </div>
 
       {/* Stats */}
@@ -94,12 +113,13 @@ const AdminAnalytics = () => {
 
         <div className="analytics-card">
           <h3>{uniqueCustomers}</h3>
-          <p>Customers</p>
+          <p>Total Customers</p>
         </div>
 
         <div className="analytics-card">
           <h3>₹{totalRevenue.toLocaleString("en-IN")}</h3>
-          <p>Revenue</p>
+
+          <p>Total Revenue</p>
         </div>
       </div>
 
@@ -107,19 +127,22 @@ const AdminAnalytics = () => {
 
       <div className="analytics-grid">
         <div className="chart-card">
-          <h3>Total Revenue</h3>
+          <h3>Revenue Overview</h3>
 
           <ResponsiveContainer width="100%" height={320}>
             <LineChart data={revenueData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
+
+              <XAxis dataKey="month" />
+
               <YAxis />
+
               <Tooltip />
 
               <Line
                 type="monotone"
                 dataKey="revenue"
-                stroke="#ff5a3c"
+                stroke="var(--primary)"
                 strokeWidth={4}
               />
             </LineChart>
@@ -132,13 +155,73 @@ const AdminAnalytics = () => {
           <ResponsiveContainer width="100%" height={320}>
             <BarChart data={ordersData}>
               <CartesianGrid strokeDasharray="3 3" />
+
               <XAxis dataKey="name" />
-              <YAxis />
+
+              <YAxis allowDecimals={false} />
+
               <Tooltip />
 
-              <Bar dataKey="orders" fill="#ff5a3c" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="orders" fill="var(--primary)" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Bottom Section */}
+
+      <div className="analytics-bottom">
+        {/* Top Products */}
+
+        <div className="analytics-table">
+          <h3>Top Selling Products</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Sales</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {topProducts.map((product) => (
+                <tr key={product.name}>
+                  <td>{product.name}</td>
+
+                  <td>{product.sales}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Recent Orders */}
+
+        <div className="analytics-table">
+          <h3>Recent Orders</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Status</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {orders.slice(0, 5).map((order) => (
+                <tr key={order._id}>
+                  <td>{order.customer}</td>
+
+                  <td>{order.status}</td>
+
+                  <td>₹{Number(order.total).toLocaleString("en-IN")}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </AdminLayout>

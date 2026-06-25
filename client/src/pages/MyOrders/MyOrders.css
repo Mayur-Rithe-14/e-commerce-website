@@ -111,7 +111,7 @@
 .shop-now-btn {
   display: inline-block;
   padding: 14px 28px;
-  background: #ff5a3c;
+  background: var(--primary);
   color: white;
   text-decoration: none;
   border-radius: 12px;
@@ -120,7 +120,7 @@
 }
 
 .shop-now-btn:hover {
-  background: #e94a2c;
+  background: #1e63d6;
   color: white;
 }
 

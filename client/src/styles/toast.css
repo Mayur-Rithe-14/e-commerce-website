@@ -9,5 +9,5 @@
 }
 
 .Toastify__progress-bar {
-  background: #ff5a3c;
+  background: var(--primary);
 }

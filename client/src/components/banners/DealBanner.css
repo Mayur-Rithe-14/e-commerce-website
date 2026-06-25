@@ -3,7 +3,7 @@
 }
 
 .deal-banner {
-  background: linear-gradient(135deg, #ff5a3c, #ff7c63);
+  background: linear-gradient(135deg, var(--primary), var(--primary));
   border-radius: 25px;
   padding: 60px;
   display: flex;
@@ -41,7 +41,7 @@
 
 .deal-content button {
   background: white;
-  color: #ff5a3c;
+  color: var(--primary);
   padding: 14px 30px;
   border-radius: 10px;
   font-weight: 600;

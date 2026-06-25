@@ -39,7 +39,7 @@ const OrderSuccess = () => {
           </div>
 
           <div className="success-actions">
-            <Link to="/orders" className="orders-btn">
+            <Link to="/my-orders" className="orders-btn">
               <FiPackage />
               View Orders
             </Link>

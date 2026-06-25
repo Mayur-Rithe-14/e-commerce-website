@@ -27,7 +27,7 @@ const Wishlist = () => {
         ) : (
           <div className="wishlist-grid">
             {wishlistItems.map((item) => (
-              <div className="wishlist-card" key={item.id}>
+              <div className="wishlist-card" key={item._id}>
                 <div className="wishlist-image">
                   <img src={item.image} alt={item.name} />
                 </div>
@@ -49,7 +49,7 @@ const Wishlist = () => {
 
                     <button
                       className="remove-btn"
-                      onClick={() => removeFromWishlist(item.id)}
+                      onClick={() => removeFromWishlist(item._id)}
                     >
                       Remove
                     </button>

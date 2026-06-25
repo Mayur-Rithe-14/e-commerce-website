@@ -55,7 +55,7 @@
 
 .read-more-btn {
   background: transparent;
-  color: #ff5a3c;
+  color: var(--primary);
 
   display: flex;
   align-items: center;

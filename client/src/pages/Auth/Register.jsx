@@ -45,7 +45,7 @@ const Register = () => {
       localStorage.setItem("user", JSON.stringify(data));
       localStorage.setItem("token", data.token);
 
-      toast.success("Registration Successful 🚀");
+      toast.success("Registration Successful");
 
       navigate("/");
     } catch (error) {
@@ -60,7 +60,7 @@ const Register = () => {
       <div className="auth-container">
         {/* Left Side */}
         <div className="auth-banner">
-          <span>Join E-Shop</span>
+          <span>Join E-Mart</span>
 
           <h1>
             Create Your

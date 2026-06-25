@@ -4,10 +4,11 @@ import {
   FiShoppingCart,
   FiUser,
   FiMenu,
+  FiX,
 } from "react-icons/fi";
 
 import {Link} from "react-router-dom";
-import {useContext} from "react";
+import {useContext, useState} from "react";
 
 import {CartContext} from "../../context/CartContext";
 import {WishlistContext} from "../../context/WishlistContext";
@@ -16,21 +17,36 @@ import {SearchContext} from "../../context/SearchContext";
 import "./Header.css";
 
 const Header = () => {
+  const [mobileMenu, setMobileMenu] = useState(false);
+
   const {cartItems} = useContext(CartContext);
   const {wishlistItems} = useContext(WishlistContext);
   const {searchTerm, setSearchTerm} = useContext(SearchContext);
 
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
+  const closeMenu = () => {
+    setMobileMenu(false);
+  };
+
   return (
     <>
-      {/* Main Header */}
+      {/* Header */}
       <header className="header">
         <div className="container header-container">
-          {/* Logo */}
-          <Link to="/" className="logo">
-            <h2>E-Shop</h2>
-          </Link>
+          {/* Mobile Logo + Menu */}
+          <div className="mobile-header-left">
+            <button
+              className="mobile-menu-btn"
+              onClick={() => setMobileMenu(!mobileMenu)}
+            >
+              {mobileMenu ? <FiX /> : <FiMenu />}
+            </button>
+
+            <Link to="/" className="logo">
+              <h2>E-Mart</h2>
+            </Link>
+          </div>
 
           {/* Search */}
           <div className="search-box">
@@ -46,7 +62,7 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Icons */}
+          {/* Header Icons */}
           <div className="header-icons">
             <Link to="/account" className="icon-box">
               <FiUser />
@@ -65,14 +81,9 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Navigation */}
+      {/* Desktop Navbar */}
       <nav className="navbar">
         <div className="container nav-container">
-          <div className="categories-btn">
-            <FiMenu />
-            <span>All Categories</span>
-          </div>
-
           <ul className="nav-links">
             <li>
               <Link to="/">Home</Link>
@@ -87,18 +98,6 @@ const Header = () => {
             </li>
 
             <li>
-              <Link to="/products">Products</Link>
-            </li>
-
-            <li>
-              <Link to="/best-sellers">Best Seller</Link>
-            </li>
-
-            <li>
-              <Link to="/new-arrivals">New Arrivals</Link>
-            </li>
-
-            <li>
               <Link to="/blog">Blog</Link>
             </li>
 
@@ -108,6 +107,39 @@ const Header = () => {
           </ul>
         </div>
       </nav>
+
+      {/* Mobile Menu */}
+      {mobileMenu && (
+        <div className="mobile-menu">
+          <Link to="/" onClick={closeMenu}>
+            Home
+          </Link>
+
+          <Link to="/shop" onClick={closeMenu}>
+            Shop
+          </Link>
+
+          <Link to="/my-orders" onClick={closeMenu}>
+            My Orders
+          </Link>
+
+          <Link to="/wishlist" onClick={closeMenu}>
+            Wishlist
+          </Link>
+
+          <Link to="/account" onClick={closeMenu}>
+            My Account
+          </Link>
+
+          <Link to="/blog" onClick={closeMenu}>
+            Blog
+          </Link>
+
+          <Link to="/contact" onClick={closeMenu}>
+            Contact
+          </Link>
+        </div>
+      )}
     </>
   );
 };

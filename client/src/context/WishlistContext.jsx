@@ -5,7 +5,6 @@ export const WishlistContext = createContext();
 const WishlistProvider = ({children}) => {
   const [wishlistItems, setWishlistItems] = useState(() => {
     const savedWishlist = localStorage.getItem("wishlist");
-
     return savedWishlist ? JSON.parse(savedWishlist) : [];
   });
 
@@ -14,17 +13,23 @@ const WishlistProvider = ({children}) => {
   }, [wishlistItems]);
 
   const addToWishlist = (product) => {
-    const exists = wishlistItems.find((item) => item.id === product.id);
+    const exists = wishlistItems.find((item) => item._id === product._id);
 
     if (exists) {
-      setWishlistItems(wishlistItems.filter((item) => item.id !== product.id));
+      setWishlistItems((prev) =>
+        prev.filter((item) => item._id !== product._id),
+      );
     } else {
-      setWishlistItems([...wishlistItems, product]);
+      setWishlistItems((prev) => [...prev, product]);
     }
   };
 
   const removeFromWishlist = (id) => {
-    setWishlistItems((prev) => prev.filter((item) => item.id !== id));
+    setWishlistItems((prev) => prev.filter((item) => item._id !== id));
+  };
+
+  const isInWishlist = (id) => {
+    return wishlistItems.some((item) => item._id === id);
   };
 
   return (
@@ -33,6 +38,7 @@ const WishlistProvider = ({children}) => {
         wishlistItems,
         addToWishlist,
         removeFromWishlist,
+        isInWishlist,
       }}
     >
       {children}

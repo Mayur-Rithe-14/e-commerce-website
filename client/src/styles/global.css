@@ -1,3 +1,23 @@
+:root {
+  --primary: #2874f0;
+  --secondary: #172337;
+  --accent: #ffe500;
+  --bg: #f1f3f6;
+  --text: #212121;
+  --white: #ffffff;
+  --border: #e5e7eb;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+main,
+.page-content,
+.shop-page,
+.account-page,
+.blog-page,
+.contact-page {
+  padding-top: 20px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,13 +30,15 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background: #f7f7f7;
-  color: #222;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: 0.3s ease;
 }
 
 ul {
@@ -31,6 +53,14 @@ img {
 button {
   cursor: pointer;
   border: none;
+  font-family: inherit;
+  transition: 0.3s ease;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
 }
 
 .container {
@@ -39,21 +69,24 @@ button {
   margin: auto;
 }
 
+/* Scroll To Top */
+
 .scroll-top-btn {
   position: fixed;
   right: 25px;
   bottom: 25px;
   width: 50px;
   height: 50px;
-  background: #ff5a3c;
-  color: white;
+  background: var(--primary);
+  color: var(--white);
   border-radius: 50%;
   z-index: 999;
   font-size: 22px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: 0.3s;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
 }
 
 .scroll-top-btn:hover {
   transform: translateY(-5px);
+  background: #1f63d4;
 }

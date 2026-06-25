@@ -19,7 +19,15 @@ const OrderProvider = ({children}) => {
         return;
       }
 
-      const {data} = await API.get("/orders/my-orders");
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      let endpoint = "/orders/my-orders";
+
+      if (user?.role === "admin" || user?.isAdmin === true) {
+        endpoint = "/orders";
+      }
+
+      const {data} = await API.get(endpoint);
 
       setOrders(data);
     } catch (error) {

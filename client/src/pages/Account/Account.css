@@ -1,6 +1,6 @@
 .account-page {
   padding: 50px 0;
-  background: #f8f9fb;
+  background: #f1f3f6;
   min-height: 100vh;
 }
 
@@ -8,6 +8,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 30px;
+  color: var(--secondary);
 }
 
 .account-layout {
@@ -26,11 +27,9 @@
   border-radius: 18px;
   padding: 18px;
   height: fit-content;
-
   position: sticky;
   top: 20px;
-
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 .account-sidebar ul {
@@ -44,24 +43,21 @@
   display: flex;
   align-items: center;
   gap: 12px;
-
   padding: 14px 16px;
-
   border-radius: 12px;
   cursor: pointer;
-
   font-size: 16px;
   font-weight: 500;
-
   transition: all 0.3s ease;
 }
 
 .account-sidebar li:hover {
-  background: #f3f4f6;
+  background: #e8f0fe;
+  color: var(--primary);
 }
 
 .account-sidebar li.active {
-  background: #ff5a3c;
+  background: var(--primary);
   color: white;
 }
 
@@ -71,7 +67,8 @@
 }
 
 .logout-item:hover {
-  background: #fee2e2;
+  background: #fff1f1;
+  color: #ef4444;
 }
 
 /* =========================
@@ -94,22 +91,29 @@
 }
 
 .account-card {
-  background: white;
+  background: linear-gradient(135deg, #ffffff, #f8fbff);
   border-radius: 18px;
   padding: 28px;
   text-align: center;
+  border: 1px solid #e6eefc;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+}
 
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+.account-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(40, 116, 240, 0.12);
 }
 
 .account-card svg {
   font-size: 34px;
-  color: #ff5a3c;
+  color: var(--primary);
 }
 
 .account-card h3 {
   margin: 15px 0 6px;
   font-size: 30px;
+  color: var(--secondary);
 }
 
 .account-card p {
@@ -122,17 +126,16 @@
 
 .account-welcome {
   margin-top: 24px;
-
-  background: white;
+  background: linear-gradient(135deg, #ffffff, #f5f9ff);
   border-radius: 18px;
-
   padding: 30px;
-
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e6eefc;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 .account-welcome h2 {
   margin-bottom: 10px;
+  color: var(--secondary);
 }
 
 .account-welcome p {

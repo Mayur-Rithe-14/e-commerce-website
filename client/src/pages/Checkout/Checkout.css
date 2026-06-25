@@ -21,7 +21,6 @@
   background: white;
   padding: 35px;
   border-radius: 20px;
-
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
@@ -32,7 +31,6 @@
 .form-group {
   display: flex;
   flex-direction: column;
-
   margin-bottom: 18px;
 }
 
@@ -43,19 +41,15 @@
 
 .form-group input {
   height: 55px;
-
   border: 1px solid #ddd;
   border-radius: 12px;
-
   padding: 0 15px;
-
   font-size: 15px;
-
   outline: none;
 }
 
 .form-group input:focus {
-  border-color: #ff5a3c;
+  border-color: var(--primary);
 }
 
 .form-row {
@@ -69,7 +63,7 @@
   height: 60px;
   border: none;
   border-radius: 12px;
-  background: #ff5a3c;
+  background: var(--primary);
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -79,7 +73,7 @@
 }
 
 .place-order-btn:hover {
-  background: #e54d31;
+  background: #1e63d6;
 }
 
 /* RIGHT */

@@ -6,7 +6,6 @@ export const CartContext = createContext();
 const CartProvider = ({children}) => {
   const [cartItems, setCartItems] = useState(() => {
     const savedCart = localStorage.getItem("cart");
-
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
@@ -15,12 +14,12 @@ const CartProvider = ({children}) => {
   }, [cartItems]);
 
   const addToCart = (product, quantity = 1) => {
-    const existingItem = cartItems.find((item) => item.id === product.id);
+    const existingItem = cartItems.find((item) => item._id === product._id);
 
     if (existingItem) {
       setCartItems(
         cartItems.map((item) =>
-          item.id === product.id
+          item._id === product._id
             ? {
                 ...item,
                 quantity: item.quantity + quantity,
@@ -28,8 +27,6 @@ const CartProvider = ({children}) => {
             : item,
         ),
       );
-
-      toast.success("Cart updated successfully");
     } else {
       setCartItems([
         ...cartItems,
@@ -38,15 +35,13 @@ const CartProvider = ({children}) => {
           quantity,
         },
       ]);
-
-      toast.success("Product added to cart");
     }
   };
 
-  const increaseQty = (id) => {
+  const increaseQty = (_id) => {
     setCartItems(
       cartItems.map((item) =>
-        item.id === id
+        item._id === _id
           ? {
               ...item,
               quantity: item.quantity + 1,
@@ -56,10 +51,10 @@ const CartProvider = ({children}) => {
     );
   };
 
-  const decreaseQty = (id) => {
+  const decreaseQty = (_id) => {
     setCartItems(
       cartItems.map((item) =>
-        item.id === id
+        item._id === _id
           ? {
               ...item,
               quantity: item.quantity > 1 ? item.quantity - 1 : 1,
@@ -69,14 +64,17 @@ const CartProvider = ({children}) => {
     );
   };
 
-  const removeItem = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
-
+  const removeItem = (_id) => {
+    setCartItems(cartItems.filter((item) => item._id !== _id));
     toast.info("Item removed from cart");
   };
 
   const clearCart = () => {
     setCartItems([]);
+  };
+
+  const isInCart = (_id) => {
+    return cartItems.some((item) => item._id === _id);
   };
 
   return (
@@ -88,6 +86,7 @@ const CartProvider = ({children}) => {
         decreaseQty,
         removeItem,
         clearCart,
+        isInCart,
       }}
     >
       {children}

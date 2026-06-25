@@ -24,7 +24,7 @@
 
 .feature-icon {
   font-size: 32px;
-  color: #ff5a3c;
+  color: var(--primary);
 }
 
 .feature-card h4 {

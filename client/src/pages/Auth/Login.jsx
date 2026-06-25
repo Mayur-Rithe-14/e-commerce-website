@@ -36,7 +36,7 @@ const Login = () => {
       localStorage.setItem("user", JSON.stringify(data));
       localStorage.setItem("token", data.token);
 
-      toast.success("Login Successful 🚀");
+      toast.success("Login Successful");
 
       navigate("/");
     } catch (error) {
@@ -56,7 +56,7 @@ const Login = () => {
           <h1>
             Sign In To Your
             <br />
-            E-Shop Account
+            E-Mart Account
           </h1>
 
           <p>

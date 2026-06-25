@@ -50,17 +50,15 @@
 .orders-row select {
   width: 100%;
   padding: 10px 12px;
-
   border: 1px solid #ddd;
   border-radius: 10px;
-
   outline: none;
   cursor: pointer;
   background: white;
 }
 
 .orders-row select:focus {
-  border-color: #ff5a3c;
+  border-color: var(--primary);
 }
 
 /* Actions */
@@ -73,20 +71,16 @@
 .delete-order-btn {
   background: #ef4444;
   color: white;
-
   border: none;
   border-radius: 10px;
-
   padding: 10px 16px;
-
   cursor: pointer;
   font-weight: 600;
-
   transition: all 0.3s ease;
 }
 
 .delete-order-btn:hover {
-  background: #dc2626;
+  background: #1e63d6;
   transform: translateY(-2px);
 }
 
@@ -101,23 +95,19 @@
 .delete-btn {
   width: 42px;
   height: 42px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: none;
   border-radius: 10px;
-
   background: #fee2e2;
-  color: #dc2626;
-
+  color: #1e63d6;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .delete-btn:hover {
-  background: #dc2626;
+  background: #1e63d6;
   color: white;
 }
 
@@ -130,9 +120,7 @@
   .orders-row {
     grid-template-columns: 1fr;
     gap: 12px;
-
     text-align: center;
-
     padding: 20px;
   }
 

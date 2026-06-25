@@ -39,7 +39,7 @@
 }
 
 .save-btn {
-  background: #ff5a3c;
+  background: var(--primary);
   color: white;
   border: none;
   border-radius: 12px;

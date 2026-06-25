@@ -25,11 +25,11 @@ const FeaturedProducts = () => {
 
         <div className="products-grid">
           {featuredProducts.map((product) => (
-            <div className="product-card" key={product.id}>
+            <div className="product-card" key={product._id}>
               <div className="product-actions">
                 <button
                   className={
-                    wishlistItems.some((item) => item.id === product.id)
+                    wishlistItems.some((item) => item._id === product._id)
                       ? "action-active"
                       : ""
                   }
@@ -40,7 +40,7 @@ const FeaturedProducts = () => {
 
                 <button
                   className={
-                    cartItems.some((item) => item.id === product.id)
+                    cartItems.some((item) => item._id === product._id)
                       ? "action-active"
                       : ""
                   }
@@ -50,11 +50,11 @@ const FeaturedProducts = () => {
                 </button>
               </div>
 
-              <Link to={`/product/${product.id}`}>
+              <Link to={`/product/${product._id}`}>
                 <img src={product.image} alt={product.name} />
               </Link>
 
-              <Link to={`/product/${product.id}`} className="product-link">
+              <Link to={`/product/${product._id}`} className="product-link">
                 <h3>{product.name}</h3>
               </Link>
 

@@ -1,51 +1,124 @@
-# 🛒 MERN E-Commerce Store
+# 🛍️ E-Shop | Full Stack MERN E-Commerce Platform
 
-A full-stack E-Commerce web application built using the MERN Stack (MongoDB, Express.js, React.js, Node.js). This project provides a modern shopping experience with user authentication, product management, order management, admin dashboard, analytics, cart, wishlist, and responsive UI.
+A modern and fully responsive E-Commerce web application built using the MERN Stack (MongoDB, Express.js, React.js, Node.js).
+
+The platform provides a complete online shopping experience for customers along with a powerful admin panel for managing products, orders, customers, and business analytics.
 
 ---
 
-## 🚀 Features
+## 🌐 Live Demo
 
-### 👤 User Features
+- Live Website: https://e-commerce-website-lnms.onrender.com
 
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+![Home Page](./screenshots/home-page.png)
+
+---
+
+### 🛍️ Shop Page
+
+![Shop Page](./screenshots/shop-page.png)
+
+---
+
+### 📦 Product Details
+
+![Product Details](./screenshots/product-details.png)
+
+---
+
+### 🛒 Shopping Cart
+
+![Shopping Cart](./screenshots/cart-page.png)
+
+---
+
+### 👤 User Dashboard
+
+![User Dashboard](./screenshots/user-dashboard.png)
+
+---
+
+### 📋 My Orders
+
+![My Orders](./screenshots/orders-page.png)
+
+---
+
+### ⚙️ Admin Dashboard
+
+![Admin Dashboard](./screenshots/admin-dashboard.png)
+
+---
+
+### 📊 Analytics Dashboard
+
+![Analytics Dashboard](./screenshots/analytics-dashboard.png)
+
+---
+
+## ✨ Key Features
+
+### Customer Features
+
+- Secure User Authentication (JWT)
 - User Registration & Login
-- JWT Authentication
 - Browse Products
-- Product Details Page
-- Search Products
-- Filter Products by Category
-- Add to Cart
-- Update Cart Quantity
+- Product Search Functionality
+- Category-Based Filtering
+- Product Detail View
+- Add Products to Cart
+- Update Cart Quantities
 - Wishlist Management
-- Secure Checkout
-- Place Orders
-- View My Orders
-- Responsive Design
+- Checkout System
+- Order Placement
+- Order History Tracking
+- Responsive Design for Mobile, Tablet & Desktop
 
----
+### Admin Features
 
-### 🛠 Admin Features
-
-- Admin Login Access
-- Admin Dashboard
+- Secure Admin Access
+- Dashboard Overview
 - Product Management
-  - Add Product
-  - Edit Product
-  - Delete Product
+  - Create Products
+  - Edit Products
+  - Delete Products
 
 - Order Management
   - View Orders
   - Update Order Status
   - Delete Orders
 
-- Customer Management
-- Analytics Dashboard
-- Revenue Tracking
-- Store Statistics
+- Customer Insights
+- Revenue Analytics
+- Order Analytics
+- Store Performance Tracking
 
 ---
 
-## 🧰 Tech Stack
+## 📊 Analytics Dashboard
+
+The Admin Analytics Dashboard provides:
+
+- Total Products
+- Total Orders
+- Total Customers
+- Total Revenue
+- Monthly Revenue Overview
+- Order Status Analytics
+- Top Selling Products
+- Recent Orders Overview
+
+Built using Recharts for interactive data visualization.
+
+---
+
+## 🛠️ Technology Stack
 
 ### Frontend
 
@@ -68,12 +141,12 @@ A full-stack E-Commerce web application built using the MERN Stack (MongoDB, Exp
 ### Database
 
 - MongoDB Atlas
-- Mongoose ODM
+- Mongoose
 
 ### Deployment
 
+- Render (Frontend)
 - Render (Backend)
-- Render Static Site (Frontend)
 
 ---
 
@@ -83,16 +156,16 @@ A full-stack E-Commerce web application built using the MERN Stack (MongoDB, Exp
 
 ```bash
 client/
-│
+├── public/
 ├── src/
+│   ├── assets/
 │   ├── components/
 │   ├── context/
 │   ├── pages/
-│   ├── routes/
 │   ├── services/
-│   ├── assets/
-│   └── App.jsx
-│
+│   ├── routes/
+│   ├── App.jsx
+│   └── main.jsx
 └── package.json
 ```
 
@@ -100,12 +173,11 @@ client/
 
 ```bash
 server/
-│
+├── config/
 ├── controllers/
 ├── middleware/
 ├── models/
 ├── routes/
-├── config/
 ├── server.js
 └── package.json
 ```
@@ -119,7 +191,7 @@ server/
 ```env
 PORT=5000
 
-MONGO_URI=YOUR_MONGODB_ATLAS_URI
+MONGO_URI=YOUR_MONGODB_URI
 
 JWT_SECRET=YOUR_SECRET_KEY
 
@@ -129,12 +201,12 @@ ADMIN_EMAIL=admin@example.com
 ### Frontend (.env)
 
 ```env
-VITE_API_URL=https://your-backend-url.onrender.com/api
+VITE_API_URL=https://your-api-url.onrender.com/api
 ```
 
 ---
 
-## ⚙️ Installation
+## ⚙️ Installation & Setup
 
 ### Clone Repository
 
@@ -143,8 +215,6 @@ git clone https://github.com/yourusername/mern-ecommerce-store.git
 
 cd mern-ecommerce-store
 ```
-
----
 
 ### Backend Setup
 
@@ -156,13 +226,11 @@ npm install
 npm run dev
 ```
 
-Backend runs on:
+Backend:
 
 ```bash
 http://localhost:5000
 ```
-
----
 
 ### Frontend Setup
 
@@ -174,7 +242,7 @@ npm install
 npm run dev
 ```
 
-Frontend runs on:
+Frontend:
 
 ```bash
 http://localhost:5173
@@ -182,29 +250,17 @@ http://localhost:5173
 
 ---
 
-## 📊 Admin Dashboard Metrics
-
-- Total Products
-- Total Orders
-- Total Customers
-- Total Revenue
-- Revenue Analytics
-- Orders Analytics
-
----
-
-## 🔐 Authentication
-
-The project uses:
+## 🔒 Authentication & Security
 
 - JWT Authentication
 - Protected Routes
 - Admin Protected Routes
 - Role-Based Access Control
+- Password Hashing using bcryptjs
 
 ---
 
-## 📦 API Endpoints
+## 📦 REST API Endpoints
 
 ### Authentication
 
@@ -233,50 +289,52 @@ PUT    /api/orders/:id
 DELETE /api/orders/:id
 ```
 
-### Admin
-
-```http
-GET /api/admin/stats
-```
-
 ---
 
 ## 📱 Responsive Design
 
-The application is optimized for:
+Optimized for:
 
-- Desktop
-- Tablet
+- Desktop Devices
+- Tablets
 - Mobile Devices
 
 ---
 
-## 🎯 Future Improvements
+## 🔮 Future Enhancements
 
-- Online Payment Gateway Integration
+- Razorpay Integration
+- Stripe Integration
 - Product Reviews & Ratings
-- Coupon System
-- Inventory Alerts
 - Email Notifications
-- Sales Reports Export
+- Coupon System
+- Inventory Management
+- Sales Report Export
 - Dark Mode
-- Multi-Vendor Support
+- Multi-Vendor Marketplace
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Developer
 
-Developed by:
+Mayur Rithe
 
-**MERN Stack Developer**
+MERN Stack Developer
+
+### Skills
 
 - MongoDB
 - Express.js
 - React.js
 - Node.js
+- REST APIs
+- JWT Authentication
+- Context API
+- Recharts
+- Responsive UI Design
 
 ---
 
-## 📄 License
+## ⭐ If you like this project
 
-This project is licensed under the MIT License.
+Give this repository a star and feel free to fork it.

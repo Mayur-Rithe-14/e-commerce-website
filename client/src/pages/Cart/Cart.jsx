@@ -45,9 +45,9 @@ const Cart = () => {
                   </div>
 
                   <div className="qty-box">
-                    <button onClick={() => decreaseQty(item.id)}>-</button>
+                    <button onClick={() => decreaseQty(item._id)}>-</button>
                     <span>{item.quantity}</span>
-                    <button onClick={() => increaseQty(item.id)}>+</button>
+                    <button onClick={() => increaseQty(item._id)}>+</button>
                   </div>
 
                   <div className="cart-price">
@@ -55,7 +55,7 @@ const Cart = () => {
                   </div>
                   <button
                     className="remove-btn"
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => removeItem(item._id)}
                   >
                     Remove
                   </button>

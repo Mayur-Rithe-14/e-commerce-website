@@ -1,5 +1,6 @@
 .best-sellers {
-  padding: 20px 0 80px;
+  padding: 30px 0 90px;
+  background: #f1f3f6;
 }
 
 .best-grid {
@@ -9,27 +10,30 @@
 }
 
 .best-card {
-  background: white;
-  border-radius: 20px;
+  background: #ffffff;
+  border-radius: 18px;
   padding: 25px;
   position: relative;
   overflow: hidden;
   text-align: center;
-  transition: 0.3s;
+  transition: 0.3s ease;
+  border: 1px solid #e6eefc;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
 }
 
 .best-card:hover {
   transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(40, 116, 240, 0.12);
 }
 
 .discount-badge {
   position: absolute;
   top: 15px;
   left: 15px;
-  background: #ff5a3c;
+  background: var(--primary);
   color: white;
   padding: 6px 12px;
-  border-radius: 20px;
+  border-radius: 30px;
   font-size: 12px;
   font-weight: 600;
 }
@@ -39,20 +43,28 @@
   height: 180px;
   object-fit: contain;
   margin: 30px auto 20px;
+  transition: 0.3s ease;
+}
+
+.best-card:hover img {
+  transform: scale(1.05);
 }
 
 .product-category {
-  color: #888;
+  color: #777;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .best-card h3 {
   margin: 10px 0;
   font-size: 18px;
+  color: var(--secondary);
+  font-weight: 600;
 }
 
 .stars {
-  color: #f8b400;
+  color: #ffc107;
   margin-bottom: 10px;
 }
 
@@ -61,24 +73,30 @@
 }
 
 .old-price {
-  color: #999;
+  color: #9ca3af;
   text-decoration: line-through;
   margin-right: 10px;
+  font-size: 14px;
 }
 
 .new-price {
-  color: #ff5a3c;
+  color: var(--primary);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .add-cart-btn {
   width: 100%;
-  padding: 12px;
-  background: #ff5a3c;
+  padding: 13px;
+  background: var(--primary);
   color: white;
   border-radius: 10px;
   font-weight: 600;
+  transition: 0.3s;
+}
+
+.add-cart-btn:hover {
+  background: #1e63d6;
 }
 
 .hover-actions {
@@ -91,18 +109,28 @@
 }
 
 .hover-actions button {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: #f4f4f4;
+  background: #f5f7fa;
+  border: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 0.3s;
 }
 
+.hover-actions button svg {
+  color: #555;
+  transition: 0.3s;
+}
+
 .hover-actions button:hover {
-  background: #ff5a3c;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.hover-actions button:hover svg {
   color: white;
 }
 

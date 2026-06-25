@@ -119,7 +119,7 @@ const ProductDetails = () => {
                 onClick={() => {
                   addToCart(product, quantity);
 
-                  toast.success(`${product.name} Added To Cart`);
+                  toast.success(`Added To Cart`);
                 }}
               >
                 {Number(product.stock) <= 0 ? "Out Of Stock" : "Add To Cart"}

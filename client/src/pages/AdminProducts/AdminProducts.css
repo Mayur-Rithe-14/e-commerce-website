@@ -27,7 +27,7 @@
   align-items: center;
   gap: 10px;
   border: none;
-  background: #ff5a3c;
+  background: var(--primary);
   color: white;
   padding: 14px 20px;
   border-radius: 12px;

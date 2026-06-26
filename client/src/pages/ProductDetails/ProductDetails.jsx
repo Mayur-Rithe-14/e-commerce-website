@@ -60,7 +60,6 @@ const ProductDetails = () => {
               alt={product.name}
               className="main-product-image"
             />
-            ```
             <div className="image-gallery">
               {[product.image, product.image, product.image].map(
                 (img, index) => (

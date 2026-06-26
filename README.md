@@ -1,4 +1,4 @@
-# 🛍️ E-Shop | Full Stack MERN E-Commerce Platform
+# 🛍️ E-Mart | Full Stack MERN E-Commerce Platform
 
 A modern and fully responsive E-Commerce web application built using the MERN Stack (MongoDB, Express.js, React.js, Node.js).
 
